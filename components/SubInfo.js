@@ -51,7 +51,7 @@ export const EthPrice = ({ price }) => {
     </View>
   );
 };
-export const ImageCmp = ({ imageUrl, index }) => {
+export const ImageCmp = ({ imgUrl, index }) => {
   return (
     <Image
       style={{
@@ -59,7 +59,7 @@ export const ImageCmp = ({ imageUrl, index }) => {
         height: 48,
         marginLeft: index === 0 ? 0 : -SIZES.font,
       }}
-      source={imageUrl}
+      source={imgUrl}
       resizeMode="contain"
     />
   );

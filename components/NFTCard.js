@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: SIZES.font,
   },
   circleButton: {
-    height: 10,
+    right: 10,
     top: 10,
   },
 });
