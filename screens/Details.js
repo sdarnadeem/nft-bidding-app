@@ -8,7 +8,7 @@ import {
   SubInfo,
   DetailsDesc,
 } from "../components";
-import { SHADOWS, SIZES } from "../constants";
+import { COLORS, FONTS, SHADOWS, SIZES } from "../constants";
 
 const Details = ({ route, navigation }) => {
   const { data } = route.params;
@@ -34,6 +34,9 @@ const Details = ({ route, navigation }) => {
             <SubInfo />
             <View style={{ padding: SIZES.font }}>
               <DetailsDesc data={data} />
+              {data.bids.length > 0 && (
+                <Text style={styles.bid}>Current Bids</Text>
+              )}
             </View>
           </>
         )}
@@ -54,5 +57,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "rgba(255, 255, 255, 0.5)",
     zIndex: 1,
+  },
+  bid: {
+    fontSize: SIZES.font,
+    fontFamily: FONTS.semiBold,
+    color: COLORS.primary,
   },
 });
