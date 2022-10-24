@@ -16,7 +16,7 @@ const NFTCard = ({ data }) => {
     <View style={styles.container}>
       <View style={styles.innerContainer}>
         <Image style={styles.image} source={data.image} resizeMode="cover" />
-        <CircleButton imgUrl={assets.heart} style={styles.circleButton} />
+        <CircleButton imgUrl={assets.heart} right={10} top={10} />
       </View>
       <SubInfo />
       <View style={{ width: "100%", padding: SIZES.font }}>
@@ -65,9 +65,5 @@ const styles = StyleSheet.create({
     height: "100%",
     borderTopLeftRadius: SIZES.font,
     borderTopRightRadius: SIZES.font,
-  },
-  circleButton: {
-    right: 10,
-    top: 10,
   },
 });

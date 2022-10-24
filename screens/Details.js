@@ -28,7 +28,7 @@ const Details = ({ route, navigation }) => {
         contentContainerStyle={{ paddingBottom: SIZES.extraLarge * 3 }}
         ListHeaderComponent={() => (
           <>
-            <DetailsHeader />
+            <DetailsHeader data={data} navigation={navigation} />
           </>
         )}
       />
