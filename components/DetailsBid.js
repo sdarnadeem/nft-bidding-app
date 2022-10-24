@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginVertical: SIZES.base,
-    marginHorizontal: SIZES.base,
+    paddingHorizontal: SIZES.base * 2,
   },
   image: {
     width: 48,
