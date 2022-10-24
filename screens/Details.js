@@ -5,6 +5,8 @@ import {
   FocusedStatusBar,
   RectButton,
   DetailsHeader,
+  SubInfo,
+  DetailsDesc,
 } from "../components";
 import { SHADOWS, SIZES } from "../constants";
 
@@ -29,6 +31,10 @@ const Details = ({ route, navigation }) => {
         ListHeaderComponent={() => (
           <>
             <DetailsHeader data={data} navigation={navigation} />
+            <SubInfo />
+            <View style={{ padding: SIZES.font }}>
+              <DetailsDesc data={data} />
+            </View>
           </>
         )}
       />
