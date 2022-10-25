@@ -32,27 +32,21 @@ export const RectButton = ({
 };
 
 export const TFAButton = ({
-  text,
+  children,
   icon,
   containerStyle,
   textStyle,
-  iconStyle,
   handlePress,
 }) => {
   return (
     <TouchableOpacity
-      style={[styles.rect, containerStyle]}
+      style={[styles.tfaContainer, containerStyle]}
       onPress={handlePress}
     >
-      {icon && (
-        <Ionicons
-          style={iconStyle}
-          name="md-checkmark-circle"
-          size={32}
-          color="green"
-        />
-      )}
-      <Text style={[styles.rectText, textStyle]}>{text}</Text>
+      {icon && <Ionicons name={icon} size={18} color="white" />}
+      <Text style={[styles.rectText, textStyle, { paddingLeft: 10 }]}>
+        {children}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -83,5 +77,13 @@ const styles = StyleSheet.create({
 
     color: COLORS.white,
     textAlign: "center",
+  },
+  tfaContainer: {
+    backgroundColor: COLORS.primary,
+    borderRadius: SIZES.extraLarge,
+    padding: SIZES.small,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

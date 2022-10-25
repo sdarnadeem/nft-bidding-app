@@ -1,13 +1,12 @@
-import {
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { CustomInput, FocusedStatusBar, RectButton } from "../components";
+import { Ionicons } from "@expo/vector-icons";
+import {
+  CustomInput,
+  FocusedStatusBar,
+  RectButton,
+  TFAButton,
+} from "../components";
 import { assets, COLORS, FONTS, SIZES } from "../constants";
 
 const Login = () => {
@@ -19,10 +18,6 @@ const Login = () => {
         <Text style={styles.text}>Bid without limits</Text>
       </View>
       <View style={styles.middleContainer}>
-        {/* <View style={styles.inputContainer}>
-          <Text style={styles.label}>Your email address</Text>
-          <TextInput style={styles.input} placeholder="abcd@gmail.com" />
-        </View> */}
         <CustomInput label="Your email address" placeholder="abcd@gmail.com" />
         <CustomInput
           label="Choose a password"
@@ -37,8 +32,12 @@ const Login = () => {
           <Text style={styles.or}>or</Text>
           <View style={styles.line}></View>
         </View>
-        <RectButton text="Sign up with Google" />
-        <RectButton text="Sign up with Apple" borderColor={COLORS.white} />
+        <TFAButton containerStyle={styles.tfaButton} icon="logo-google">
+          Sign in with Google
+        </TFAButton>
+        <TFAButton containerStyle={styles.tfaButton} icon="logo-apple">
+          Sign in with Apple
+        </TFAButton>
       </View>
     </SafeAreaView>
   );
@@ -83,6 +82,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    alignContent: "center",
+    marginBottom: 30,
   },
   line: {
     width: "37%",
@@ -93,5 +94,10 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: SIZES.medium,
     marginHorizontal: 10,
+  },
+  tfaButton: {
+    borderColor: COLORS.white,
+    borderWidth: 0.7,
+    marginBottom: 15,
   },
 });
