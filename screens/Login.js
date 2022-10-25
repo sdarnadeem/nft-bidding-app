@@ -65,7 +65,9 @@ const Login = ({ navigation }) => {
           Forgot password, {"  "}
           <Text
             style={styles.signupButton}
-            onPress={() => navigation.navigate("Favorites")}
+            onPress={() =>
+              navigation.navigate("MyDrawer", { screen: "Favorites" })
+            }
           >
             click here
           </Text>

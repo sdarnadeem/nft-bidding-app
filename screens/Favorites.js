@@ -6,7 +6,7 @@ import { FocusedStatusBar, HomeHeader } from "../components";
 import NFTCard from "../components/NFTCard";
 import FavoritesHeader from "../components/FavoritesHeader";
 
-const Favorites = () => {
+const Favorites = ({ navigation }) => {
   const [nftData, setNftData] = useState(NFTData);
   function handleSearch(value) {
     if (!value.length) return setNftData(NFTData);
@@ -31,7 +31,12 @@ const Favorites = () => {
             renderItem={({ item }) => <NFTCard data={item} />}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
-            ListHeaderComponent={<FavoritesHeader onSearch={handleSearch} />}
+            ListHeaderComponent={
+              <FavoritesHeader
+                onSearch={handleSearch}
+                navigation={navigation}
+              />
+            }
           />
         </View>
         <View
