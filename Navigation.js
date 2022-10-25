@@ -18,12 +18,16 @@ import {
   DrawerItemList,
   DrawerItem,
 } from "@react-navigation/drawer";
+import DrawerProfile from "./components/DrawerProfile";
 
 function CustomDrawerContent(props) {
-  <DrawerContentScrollView {...props}>
-    <DrawerItem label="Close drawer" />
-    <DrawerItemList {...props} />
-  </DrawerContentScrollView>;
+  return (
+    <DrawerContentScrollView {...props}>
+      <DrawerProfile />
+      <DrawerItemList {...props} />
+      <DrawerItem label="Close drawer" />
+    </DrawerContentScrollView>
+  );
 }
 const Drawer = createDrawerNavigator();
 
@@ -34,7 +38,7 @@ function MyDrawer() {
         headerShown: false,
         drawerPosition: "right",
       }}
-      // drawerContent={(props) => <CustomDrawerContent {...props} />}
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
       <Drawer.Screen
         name="Home"
