@@ -8,6 +8,7 @@ import AuthLanding from "./screens/AuthLanding";
 import Signup from "./screens/Signup";
 import ForgotPassword from "./screens/ForgotPassword";
 import SignupContinue from "./screens/SignupContinue";
+import Favorites from "./screens/Favorites";
 
 const Stack = createStackNavigator();
 
@@ -21,7 +22,7 @@ const theme = {
 
 export default function Navigation() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
@@ -35,6 +36,7 @@ export default function Navigation() {
         <Stack.Screen name="SignupContinue" component={SignupContinue} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Details" component={Details} />
+        <Stack.Screen name="Favorites" component={Favorites} />
       </Stack.Navigator>
     </NavigationContainer>
   );

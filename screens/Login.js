@@ -7,7 +7,6 @@ import {
   TFAButton,
 } from "../components";
 import { assets, COLORS, FONTS, SIZES } from "../constants";
-import { ScrollView } from "react-native-gesture-handler";
 
 const Login = ({ navigation }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -18,7 +17,7 @@ const Login = ({ navigation }) => {
         <Image source={assets.logo} style={styles.image} resizeMode="contain" />
         <Text style={styles.text}>Bid without limits</Text>
       </View>
-      <View style={styles.middleContainer} showVerticalScrollIndicator={false}>
+      <View style={styles.middleContainer}>
         <CustomInput
           label="Your email address"
           placeholder="abcd@gmail.com"
@@ -35,7 +34,11 @@ const Login = ({ navigation }) => {
           icon={passwordVisible ? "eye-off" : "eye"}
           iconPressHandler={() => setPasswordVisible(!passwordVisible)}
         />
-        <RectButton text="Continue" backgroundColor={COLORS.secondary} />
+        <RectButton
+          text="Continue"
+          backgroundColor={COLORS.secondary}
+          handlePress={() => navigation.navigate("Home")}
+        />
       </View>
       <View style={styles.bottomContainer}>
         <View style={styles.orContainer}>
@@ -62,7 +65,7 @@ const Login = ({ navigation }) => {
           Forgot password, {"  "}
           <Text
             style={styles.signupButton}
-            onPress={() => navigation.navigate("ForgotPassword")}
+            onPress={() => navigation.navigate("Favorites")}
           >
             click here
           </Text>
