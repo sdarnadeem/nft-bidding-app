@@ -9,8 +9,12 @@ import Signup from "./screens/Signup";
 import ForgotPassword from "./screens/ForgotPassword";
 import SignupContinue from "./screens/SignupContinue";
 import Favorites from "./screens/Favorites";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { MaterialIcons } from "@expo/vector-icons";
+import {
+  MaterialIcons,
+  AntDesign,
+  Ionicons,
+  FontAwesome,
+} from "@expo/vector-icons";
 
 import {
   createDrawerNavigator,
@@ -25,7 +29,42 @@ function CustomDrawerContent(props) {
     <DrawerContentScrollView {...props}>
       <DrawerProfile />
       <DrawerItemList {...props} />
-      <DrawerItem label="Close drawer" />
+      <DrawerItem
+        label="My NFTs"
+        icon={({ size, color }) => (
+          <AntDesign name="picture" size={size} color={color} />
+        )}
+      />
+      <DrawerItem
+        label="Profile"
+        icon={({ size, color }) => (
+          <AntDesign name="profile" size={size} color={color} />
+        )}
+      />
+      <DrawerItem
+        label="About Us"
+        icon={({ size, color }) => (
+          <AntDesign name="infocirlceo" size={size} color={color} />
+        )}
+      />
+      <DrawerItem
+        label="Contact Us"
+        icon={({ size, color }) => (
+          <FontAwesome name="support" size={size} color={color} />
+        )}
+      />
+      <DrawerItem
+        label="Settings"
+        icon={({ size, color }) => (
+          <AntDesign name="setting" size={size} color={color} />
+        )}
+      />
+      <DrawerItem
+        label="Logout"
+        icon={({ size, color }) => (
+          <AntDesign name="logout" size={size} color={color} />
+        )}
+      />
     </DrawerContentScrollView>
   );
 }
