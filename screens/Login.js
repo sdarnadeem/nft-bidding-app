@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
   },
   topContainer: {
-    flex: 0.4,
+    flex: 0.5,
     marginTop: 50,
     width: "100%",
     height: 100,
