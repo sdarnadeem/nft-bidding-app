@@ -6,6 +6,7 @@ import { NFTTitle, EthPrice, SubInfo } from "./SubInfo";
 import DetailsBid from "./DetailsBid";
 import DetailsDesc from "./DetailsDesc";
 import DetailsHeader from "./DetailsHeader";
+import CustomInput from "./CustomInput";
 
 export {
   HomeHeader,
@@ -19,4 +20,5 @@ export {
   DetailsDesc,
   DetailsBid,
   DetailsHeader,
+  CustomInput,
 };
