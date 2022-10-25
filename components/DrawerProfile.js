@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     borderColor: COLORS.white,
-    borderWidth: 2,
-    borderRadius: SIZES.extraLarge,
+    borderWidth: 3,
+    borderRadius: 50,
   },
   text: {
     overflow: "visible",
