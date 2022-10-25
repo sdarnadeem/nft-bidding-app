@@ -1,6 +1,5 @@
 import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { Ionicons } from "@expo/vector-icons";
+import React, { useState } from "react";
 import {
   CustomInput,
   FocusedStatusBar,
@@ -8,8 +7,10 @@ import {
   TFAButton,
 } from "../components";
 import { assets, COLORS, FONTS, SIZES } from "../constants";
+import { ScrollView } from "react-native-gesture-handler";
 
-const Login = () => {
+const Login = ({ navigation }) => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
   return (
     <SafeAreaView style={styles.outerCont}>
       <FocusedStatusBar background={COLORS.primary} />
@@ -17,12 +18,22 @@ const Login = () => {
         <Image source={assets.logo} style={styles.image} resizeMode="contain" />
         <Text style={styles.text}>Bid without limits</Text>
       </View>
-      <View style={styles.middleContainer}>
-        <CustomInput label="Your email address" placeholder="abcd@gmail.com" />
+      <View style={styles.middleContainer} showVerticalScrollIndicator={false}>
+        <CustomInput
+          label="Your email address"
+          placeholder="abcd@gmail.com"
+          textContentType="email"
+          keyboardType="email-address"
+          returnKeyType="go"
+        />
         <CustomInput
           label="Choose a password"
           placeholder="min 8 characters"
           containerStyle={styles.inputContainer}
+          textContentType="password"
+          secureTextEntry={!passwordVisible}
+          icon={passwordVisible ? "eye-off" : "eye"}
+          iconPressHandler={() => setPasswordVisible(!passwordVisible)}
         />
         <RectButton text="Continue" backgroundColor={COLORS.secondary} />
       </View>
@@ -38,6 +49,15 @@ const Login = () => {
         <TFAButton containerStyle={styles.tfaButton} icon="logo-apple">
           Sign in with Apple
         </TFAButton>
+        <Text style={styles.signup}>
+          Don't have an account,{"  "}
+          <Text
+            style={styles.signupButton}
+            onPress={() => navigation.navigate("Signup")}
+          >
+            signup here
+          </Text>
+        </Text>
       </View>
     </SafeAreaView>
   );
@@ -99,5 +119,16 @@ const styles = StyleSheet.create({
     borderColor: COLORS.white,
     borderWidth: 0.7,
     marginBottom: 15,
+  },
+  signup: {
+    color: COLORS.white,
+    paddingLeft: 10,
+    marginTop: 10,
+    alignSelf: "flex-start",
+  },
+  signupButton: {
+    color: COLORS.gray,
+    fontFamily: FONTS.bold,
+    fontSize: SIZES.font + 1,
   },
 });

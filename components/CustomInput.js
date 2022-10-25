@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 import { COLORS, SIZES } from "../constants";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const CustomInput = ({
   label,
@@ -9,15 +10,30 @@ const CustomInput = ({
   labelStyle,
   inputStyle,
   changeTextHandler,
+  icon,
+  iconPressHandler,
+  ...inputProps
 }) => {
   return (
     <View style={[styles.inputContainer, containerStyle]}>
       <Text style={[styles.label, labelStyle]}>{label}</Text>
-      <TextInput
-        style={[styles.input, inputStyle]}
-        placeholder={placeholder}
-        onChangeText={changeTextHandler}
-      />
+      <View style={styles.inputGroup}>
+        <TextInput
+          style={[styles.input, inputStyle]}
+          placeholder={placeholder}
+          onChangeText={changeTextHandler}
+          {...inputProps}
+        />
+        {icon && (
+          <Ionicons
+            style={styles.icon}
+            name={icon}
+            size={23}
+            color="black"
+            onPress={iconPressHandler}
+          />
+        )}
+      </View>
     </View>
   );
 };
@@ -34,11 +50,20 @@ const styles = StyleSheet.create({
     marginStart: 5,
   },
   input: {
+    width: "90%",
+  },
+  inputGroup: {
+    flexDirection: "row",
     backgroundColor: COLORS.white,
     paddingHorizontal: SIZES.font,
     paddingVertical: 5,
-    paddingRight: "50%",
     borderRadius: SIZES.extraLarge,
     width: "100%",
+    alignItems: "center",
+  },
+  icon: {
+    position: "absolute",
+    right: 0,
+    paddingRight: 10,
   },
 });
