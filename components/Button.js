@@ -13,13 +13,19 @@ export const CircleButton = ({ imgUrl, handlePress, ...style }) => {
   );
 };
 
-export const RectButton = ({ fontSize, handlePress, minWidth, ...style }) => {
+export const RectButton = ({
+  text,
+  fontSize,
+  handlePress,
+  minWidth,
+  ...style
+}) => {
   return (
     <TouchableOpacity
       style={[styles.rect, { minWidth, ...style }]}
       onPress={handlePress}
     >
-      <Text style={[styles.rectText, { fontSize }]}>Place a bid</Text>
+      <Text style={[styles.rectText, { fontSize }]}>{text}</Text>
     </TouchableOpacity>
   );
 };
@@ -30,6 +36,7 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: COLORS.white,
     position: "absolute",
+    flexDirection: "row",
     borderRadius: SIZES.extraLarge,
     alignItems: "center",
     justifyContent: "center",

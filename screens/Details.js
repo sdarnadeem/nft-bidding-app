@@ -20,7 +20,12 @@ const Details = ({ route, navigation }) => {
         translucent={true}
       />
       <View style={styles.container}>
-        <RectButton minWidth={170} fontSize={SIZES.large} {...SHADOWS.dark} />
+        <RectButton
+          title="Place a Bid"
+          minWidth={170}
+          fontSize={SIZES.large}
+          {...SHADOWS.dark}
+        />
       </View>
       <FlatList
         data={data.bids}

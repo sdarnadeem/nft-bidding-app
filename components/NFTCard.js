@@ -36,6 +36,7 @@ const NFTCard = ({ data }) => {
         >
           <EthPrice price={data.price} />
           <RectButton
+            text="Place a Bid"
             minWidth={120}
             fontSize={SIZES.font}
             handlePress={() => navigation.navigate("Details", { data })}
