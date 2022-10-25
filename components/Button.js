@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { COLORS, FONTS, SHADOWS, SIZES } from "../constants";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export const CircleButton = ({ imgUrl, handlePress, ...style }) => {
   return (
@@ -26,6 +27,32 @@ export const RectButton = ({
       onPress={handlePress}
     >
       <Text style={[styles.rectText, { fontSize }]}>{text}</Text>
+    </TouchableOpacity>
+  );
+};
+
+export const TFAButton = ({
+  text,
+  icon,
+  containerStyle,
+  textStyle,
+  iconStyle,
+  handlePress,
+}) => {
+  return (
+    <TouchableOpacity
+      style={[styles.rect, containerStyle]}
+      onPress={handlePress}
+    >
+      {icon && (
+        <Ionicons
+          style={iconStyle}
+          name="md-checkmark-circle"
+          size={32}
+          color="green"
+        />
+      )}
+      <Text style={[styles.rectText, textStyle]}>{text}</Text>
     </TouchableOpacity>
   );
 };

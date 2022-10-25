@@ -31,7 +31,15 @@ const Login = () => {
         />
         <RectButton text="Continue" backgroundColor={COLORS.secondary} />
       </View>
-      <View style={styles.bottomContainer}></View>
+      <View style={styles.bottomContainer}>
+        <View style={styles.orContainer}>
+          <View style={styles.line}></View>
+          <Text style={styles.or}>or</Text>
+          <View style={styles.line}></View>
+        </View>
+        <RectButton text="Sign up with Google" />
+        <RectButton text="Sign up with Apple" borderColor={COLORS.white} />
+      </View>
     </SafeAreaView>
   );
 };
@@ -70,5 +78,20 @@ const styles = StyleSheet.create({
 
   bottomContainer: {
     flex: 1,
+  },
+  orContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  line: {
+    width: "37%",
+    height: 0.4,
+    backgroundColor: COLORS.gray,
+  },
+  or: {
+    color: COLORS.white,
+    fontSize: SIZES.medium,
+    marginHorizontal: 10,
   },
 });
