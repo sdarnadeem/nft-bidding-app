@@ -27,7 +27,7 @@ const Login = ({ navigation }) => {
           returnKeyType="go"
         />
         <CustomInput
-          label="Choose a password"
+          label="Your password"
           placeholder="min 8 characters"
           containerStyle={styles.inputContainer}
           textContentType="password"

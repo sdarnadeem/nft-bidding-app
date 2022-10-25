@@ -2,7 +2,6 @@ import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { assets, COLORS, FONTS, SIZES } from "../constants";
 import { FocusedStatusBar, RectButton } from "../components";
-import Navigation from "../Navigation";
 
 const AuthLanding = ({ navigation }) => {
   return (
