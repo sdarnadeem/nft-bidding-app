@@ -1,29 +1,38 @@
-import { Image, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import { assets, COLORS, FONTS, SIZES } from "../constants";
 
-const HomeHeader = ({ onSearch }) => {
+const HomeHeader = ({ onSearch, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
         <Image style={styles.logo} source={assets.logo} resizeMode="contain" />
-        <View style={styles.imageContainer}>
-          <Image
-            source={assets.person01}
-            resizeMode="contain"
-            style={styles.person}
-          />
-          <Image
-            source={assets.badge}
-            resizeMode="contain"
-            style={{
-              position: "absolute",
-              width: 15,
-              height: 15,
-              bottom: 0,
-              right: 0,
-            }}
-          />
-        </View>
+        <Pressable onPress={() => navigation.openDrawer()}>
+          <View style={styles.imageContainer}>
+            <Image
+              source={assets.person01}
+              resizeMode="contain"
+              style={styles.person}
+            />
+            <Image
+              source={assets.badge}
+              resizeMode="contain"
+              style={{
+                position: "absolute",
+                width: 15,
+                height: 15,
+                bottom: 0,
+                right: 0,
+              }}
+            />
+          </View>
+        </Pressable>
       </View>
       <View style={{ marginVertical: SIZES.font }}>
         <Text

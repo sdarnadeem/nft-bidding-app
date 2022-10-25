@@ -5,7 +5,7 @@ import { COLORS, NFTData } from "../constants";
 import { FocusedStatusBar, HomeHeader } from "../components";
 import NFTCard from "../components/NFTCard";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [nftData, setNftData] = useState(NFTData);
   function handleSearch(value) {
     if (!value.length) return setNftData(NFTData);
@@ -30,7 +30,9 @@ const Home = () => {
             renderItem={({ item }) => <NFTCard data={item} />}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
-            ListHeaderComponent={<HomeHeader onSearch={handleSearch} />}
+            ListHeaderComponent={
+              <HomeHeader onSearch={handleSearch} navigation={navigation} />
+            }
           />
         </View>
         <View
