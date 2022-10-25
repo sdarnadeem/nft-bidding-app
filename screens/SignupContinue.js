@@ -6,7 +6,7 @@ import {
   Text,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import {
   CustomInput,
   FocusedStatusBar,
@@ -15,7 +15,8 @@ import {
 } from "../components";
 import { assets, COLORS, FONTS, SIZES } from "../constants";
 
-const Signup = ({ navigation }) => {
+const SignupContinue = ({ navigation }) => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
   return (
     <SafeAreaView style={styles.outerCont}>
       <FocusedStatusBar background={COLORS.primary} />
@@ -28,59 +29,30 @@ const Signup = ({ navigation }) => {
           />
           <Text style={styles.text}>Bid without limits</Text>
         </View>
-        <View
-          style={styles.middleContainer}
-          showVerticalScrollIndicator={false}
-        >
+        <View style={styles.middleContainer}>
           <CustomInput
-            label="Your name"
-            placeholder="Jennifer Lawrence"
-            textContentType="email"
-            keyboardType="default"
-            returnKeyType="go"
+            label="Choose a password"
+            placeholder="min 8 characters"
+            textContentType="password"
+            secureTextEntry={!passwordVisible}
+            icon={passwordVisible ? "eye-off" : "eye"}
+            iconPressHandler={() => setPasswordVisible(!passwordVisible)}
           />
           <CustomInput
-            label="Your email address"
-            placeholder="abcd@gmail.com"
-            containerStyle={{ marginTop: 20, marginBottom: 20 }}
-            textContentType="email"
-            keyboardType="email-address"
-            returnKeyType="go"
+            label="Confirm password"
+            placeholder="min 8 characters"
+            containerStyle={styles.inputContainer}
+            textContentType="password"
+            secureTextEntry={true}
           />
-          <RectButton
-            text="Continue"
-            backgroundColor={COLORS.secondary}
-            handlePress={() => navigation.navigate("SignupContinue")}
-          />
-        </View>
-        <View style={styles.bottomContainer}>
-          <View style={styles.orContainer}>
-            <View style={styles.line}></View>
-            <Text style={styles.or}>or</Text>
-            <View style={styles.line}></View>
-          </View>
-          <TFAButton containerStyle={styles.tfaButton} icon="logo-google">
-            Sign up with Google
-          </TFAButton>
-          <TFAButton containerStyle={styles.tfaButton} icon="logo-apple">
-            Sign up with Apple
-          </TFAButton>
-          <Text style={styles.signup}>
-            Already have an account,{"  "}
-            <Text
-              style={styles.signupButton}
-              onPress={() => navigation.navigate("Login")}
-            >
-              Login here
-            </Text>
-          </Text>
+          <RectButton text="Continue" backgroundColor={COLORS.secondary} />
         </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default Signup;
+export default SignupContinue;
 
 const styles = StyleSheet.create({
   outerCont: {
@@ -108,8 +80,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   inputContainer: {
-    marginTop: 10,
-    marginBottom: 12,
+    marginTop: 20,
+    marginBottom: 27,
   },
 
   bottomContainer: {

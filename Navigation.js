@@ -6,6 +6,8 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import Login from "./screens/Login";
 import AuthLanding from "./screens/AuthLanding";
 import Signup from "./screens/Signup";
+import ForgotPassword from "./screens/ForgotPassword";
+import SignupContinue from "./screens/SignupContinue";
 
 const Stack = createStackNavigator();
 
@@ -28,7 +30,9 @@ export default function Navigation() {
       >
         <Stack.Screen name="AuthLanding" component={AuthLanding} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="SignupContinue" component={SignupContinue} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Details" component={Details} />
       </Stack.Navigator>

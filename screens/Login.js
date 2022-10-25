@@ -58,6 +58,15 @@ const Login = ({ navigation }) => {
             signup here
           </Text>
         </Text>
+        <Text style={styles.signup}>
+          Forgot password, {"  "}
+          <Text
+            style={styles.signupButton}
+            onPress={() => navigation.navigate("ForgotPassword")}
+          >
+            click here
+          </Text>
+        </Text>
       </View>
     </SafeAreaView>
   );
@@ -72,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
   },
   topContainer: {
-    flex: 0.6,
+    flex: 0.4,
     marginTop: 50,
     width: "100%",
     height: 100,
@@ -125,10 +134,11 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     marginTop: 10,
     alignSelf: "flex-start",
+    fontSize: SIZES.small,
   },
   signupButton: {
     color: COLORS.gray,
     fontFamily: FONTS.bold,
-    fontSize: SIZES.font + 1,
+    fontSize: SIZES.font,
   },
 });
