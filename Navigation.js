@@ -25,6 +25,7 @@ import {
 import DrawerProfile from "./components/DrawerProfile";
 import AboutUs from "./screens/AboutUs";
 import Contact from "./screens/Contact";
+import Profile from "./screens/Profile";
 
 function CustomDrawerContent(props) {
   return (
@@ -45,6 +46,9 @@ function CustomDrawerContent(props) {
         icon={({ size, color }) => (
           <AntDesign name="profile" size={size} color={color} />
         )}
+        onPress={() => {
+          props.navigation.navigate("Profile");
+        }}
       />
       <DrawerItem
         label="About"
@@ -140,6 +144,7 @@ export default function Navigation() {
         <Stack.Screen name="SignupContinue" component={SignupContinue} />
         <Stack.Screen name="AboutUs" component={AboutUs} />
         <Stack.Screen name="Contact" component={Contact} />
+        <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen
           name="MyDrawer"
           component={MyDrawer}
