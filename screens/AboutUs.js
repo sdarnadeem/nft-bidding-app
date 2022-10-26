@@ -1,7 +1,7 @@
 import { Linking, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { COLORS, FONTS, SIZES } from "../constants";
-import AboutUsHeader from "../components/AboutUsHeader";
+import GenericHeader from "../components/GenericHeader";
 
 const AboutUs = ({ navigation }) => {
   async function handleDevLink() {
@@ -9,7 +9,7 @@ const AboutUs = ({ navigation }) => {
   }
   return (
     <View style={styles.container}>
-      <AboutUsHeader navigation={navigation} />
+      <GenericHeader navigation={navigation} title="About" />
       <Text style={styles.desc}>
         ProNef is a NFT application dealing with the NFT bidding. It allows you
         to create, bid and buy NFTs online with just a few clicks. ProNef

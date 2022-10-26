@@ -24,10 +24,14 @@ import {
 } from "@react-navigation/drawer";
 import DrawerProfile from "./components/DrawerProfile";
 import AboutUs from "./screens/AboutUs";
+import Contact from "./screens/Contact";
 
 function CustomDrawerContent(props) {
   return (
-    <DrawerContentScrollView {...props}>
+    <DrawerContentScrollView
+      {...props}
+      contentContainerStyle={{ paddingTop: 0 }}
+    >
       <DrawerProfile />
       <DrawerItemList {...props} />
       <DrawerItem
@@ -43,7 +47,7 @@ function CustomDrawerContent(props) {
         )}
       />
       <DrawerItem
-        label="About Us"
+        label="About"
         icon={({ size, color }) => (
           <AntDesign name="infocirlceo" size={size} color={color} />
         )}
@@ -52,10 +56,13 @@ function CustomDrawerContent(props) {
         }}
       />
       <DrawerItem
-        label="Contact Us"
+        label="Contact"
         icon={({ size, color }) => (
           <FontAwesome name="support" size={size} color={color} />
         )}
+        onPress={() => {
+          props.navigation.navigate("Contact");
+        }}
       />
       <DrawerItem
         label="Settings"
@@ -132,6 +139,7 @@ export default function Navigation() {
 
         <Stack.Screen name="SignupContinue" component={SignupContinue} />
         <Stack.Screen name="AboutUs" component={AboutUs} />
+        <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen
           name="MyDrawer"
           component={MyDrawer}

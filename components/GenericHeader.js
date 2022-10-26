@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { assets, COLORS, FONTS, SIZES } from "../constants";
 
-const AboutUsHeader = ({ navigation }) => {
+const GenericHeader = ({ navigation, title }) => {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -17,7 +17,7 @@ const AboutUsHeader = ({ navigation }) => {
         <Pressable
           onPress={() => {
             console.log("I ran");
-            return navigation.navigate();
+            return navigation.dispatch(DrawerActions.toggleDrawer());
           }}
         >
           <View style={styles.imageContainer}>
@@ -49,14 +49,14 @@ const AboutUsHeader = ({ navigation }) => {
             marginTop: SIZES.base / 2,
           }}
         >
-          About Us
+          {title}
         </Text>
       </View>
     </View>
   );
 };
 
-export default AboutUsHeader;
+export default GenericHeader;
 
 const styles = StyleSheet.create({
   container: {
