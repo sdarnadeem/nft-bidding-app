@@ -26,6 +26,7 @@ import DrawerProfile from "./components/DrawerProfile";
 import AboutUs from "./screens/AboutUs";
 import Contact from "./screens/Contact";
 import Profile from "./screens/Profile";
+import NewNFT from "./screens/NewNFT";
 
 function CustomDrawerContent(props) {
   return (
@@ -145,6 +146,7 @@ export default function Navigation() {
         <Stack.Screen name="AboutUs" component={AboutUs} />
         <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="NewNFT" component={NewNFT} />
         <Stack.Screen
           name="MyDrawer"
           component={MyDrawer}

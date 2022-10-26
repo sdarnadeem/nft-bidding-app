@@ -5,6 +5,7 @@ import { COLORS, NFTData } from "../constants";
 import { FocusedStatusBar, HomeHeader } from "../components";
 import NFTCard from "../components/NFTCard";
 import FavoritesHeader from "../components/FavoritesHeader";
+import FAB from "../components/FAB";
 
 const Favorites = ({ navigation }) => {
   const [nftData, setNftData] = useState(NFTData);
@@ -24,6 +25,7 @@ const Favorites = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <FocusedStatusBar background={COLORS.primary} />
+      <FAB navigation={navigation} />
       <View style={{ flex: 1 }}>
         <View style={{ zIndex: 0 }}>
           <FlatList
