@@ -1,7 +1,8 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import GenericHeader from "../components/GenericHeader";
-import { assets, COLORS, FONTS, SIZES } from "../constants";
+import { assets, COLORS, FONTS, SHADOWS, SIZES } from "../constants";
+import { Entypo } from "@expo/vector-icons";
 
 const Profile = () => {
   return (
@@ -9,6 +10,12 @@ const Profile = () => {
       <GenericHeader title="Your Profile" />
       <View style={styles.profileHeader}>
         <Image style={styles.image} source={assets.nft03} resizeMode="cover" />
+        <Entypo
+          style={{ position: "absolute", top: 10, right: 10 }}
+          name="edit"
+          size={20}
+          color="white"
+        />
         <View style={styles.middleContainer}>
           <View style={styles.imageContainer}>
             <Image
@@ -67,10 +74,13 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontFamily: FONTS.bold,
     fontSize: SIZES.large,
+    ...SHADOWS.dark,
+    marginTop: 10,
   },
   username: {
     color: COLORS.white,
     fontFamily: FONTS.bold,
     fontSize: SIZES.font,
+    ...SHADOWS.dark,
   },
 });
