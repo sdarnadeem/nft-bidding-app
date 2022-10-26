@@ -23,6 +23,7 @@ import {
   DrawerItem,
 } from "@react-navigation/drawer";
 import DrawerProfile from "./components/DrawerProfile";
+import AboutUs from "./screens/AboutUs";
 
 function CustomDrawerContent(props) {
   return (
@@ -46,6 +47,9 @@ function CustomDrawerContent(props) {
         icon={({ size, color }) => (
           <AntDesign name="infocirlceo" size={size} color={color} />
         )}
+        onPress={() => {
+          props.navigation.navigate("AboutUs");
+        }}
       />
       <DrawerItem
         label="Contact Us"
@@ -127,6 +131,7 @@ export default function Navigation() {
         <Stack.Screen name="Details" component={Details} />
 
         <Stack.Screen name="SignupContinue" component={SignupContinue} />
+        <Stack.Screen name="AboutUs" component={AboutUs} />
         <Stack.Screen
           name="MyDrawer"
           component={MyDrawer}
