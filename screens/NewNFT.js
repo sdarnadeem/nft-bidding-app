@@ -62,21 +62,29 @@ const NewNFT = () => {
                 label="Minutes Left"
                 placeholder=""
                 containerStyle={{ width: "30%" }}
+                keyboardType="number-pad"
               />
             </View>
-            <RectButton
-              text={image ? "Change Image" : "Upload Image"}
-              backgroundColor={COLORS.secondary}
-              handlePress={pickImage}
-              marginBottom={35}
-            />
-            {image && (
-              <Image
-                style={styles.image}
-                source={{ uri: image }}
-                resizeMode="cover"
+            <View style={styles.imageContainer}>
+              <RectButton
+                text={image ? "Change Image" : "Upload Image"}
+                backgroundColor={COLORS.secondary}
+                handlePress={pickImage}
+                marginBottom={20}
               />
-            )}
+              {image && (
+                <Image
+                  style={styles.image}
+                  source={{ uri: image }}
+                  resizeMode="contain"
+                />
+              )}
+              <RectButton
+                text="Submit NFT"
+                backgroundColor={COLORS.secondary}
+                marginBottom={20}
+              />
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -94,12 +102,18 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    // width: 100,
-    // height: 100,
     width: "100%",
-    height: "50%",
+    height: 300,
+    borderRadius: 10,
+    marginBottom: 20,
+  },
+  imageContainer: {
+    flex: 1,
   },
   timeContainer: {
     flexDirection: "row",
+  },
+  subButton: {
+    marginBottom: 40,
   },
 });
