@@ -1,6 +1,7 @@
 import { useFonts } from "expo-font";
 
 import Navigation from "./Navigation";
+import NFTContextProvider from "./store/context";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -12,5 +13,9 @@ export default function App() {
   });
 
   if (!loaded) return null;
-  return <Navigation />;
+  return (
+    <NFTContextProvider>
+      <Navigation />
+    </NFTContextProvider>
+  );
 }
