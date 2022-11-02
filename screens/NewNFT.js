@@ -47,9 +47,23 @@ const NewNFT = () => {
                 textAlignVertical: "top",
               }}
             />
-            <DateTimePicker value={new Date()} />
-            <DateTimePicker value={new Date()} mode="time" />
-            {/* <RNDateTimePicker mode="time" /> */}
+            <View style={styles.timeContainer}>
+              <CustomInput
+                label="Hours Left"
+                placeholder=""
+                containerStyle={{
+                  width: "30%",
+                  marginRight: 10,
+                  marginBottom: 20,
+                }}
+                keyboardType="number-pad"
+              />
+              <CustomInput
+                label="Minutes Left"
+                placeholder=""
+                containerStyle={{ width: "30%" }}
+              />
+            </View>
             <RectButton
               text={image ? "Change Image" : "Upload Image"}
               backgroundColor={COLORS.secondary}
@@ -84,5 +98,8 @@ const styles = StyleSheet.create({
     // height: 100,
     width: "100%",
     height: "50%",
+  },
+  timeContainer: {
+    flexDirection: "row",
   },
 });

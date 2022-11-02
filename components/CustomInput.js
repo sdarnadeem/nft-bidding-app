@@ -12,12 +12,13 @@ const CustomInput = ({
   changeTextHandler,
   icon,
   iconPressHandler,
+  inputGroupStyle,
   ...inputProps
 }) => {
   return (
     <View style={[styles.inputContainer, containerStyle]}>
       <Text style={[styles.label, labelStyle]}>{label}</Text>
-      <View style={styles.inputGroup}>
+      <View style={[styles.inputGroup, inputGroupStyle]}>
         <TextInput
           style={[styles.input, inputStyle]}
           placeholder={placeholder}
