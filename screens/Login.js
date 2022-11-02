@@ -7,9 +7,19 @@ import {
   TFAButton,
 } from "../components";
 import { assets, COLORS, FONTS, SIZES } from "../constants";
+import { signin } from "../services/authServices";
 
 const Login = ({ navigation }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
+
+  async function onLogin() {
+    const res = await signin(email, password);
+    console.log(res);
+  }
   return (
     <SafeAreaView style={styles.outerCont}>
       <FocusedStatusBar background={COLORS.primary} />
@@ -24,6 +34,8 @@ const Login = ({ navigation }) => {
           textContentType="email"
           keyboardType="email-address"
           returnKeyType="go"
+          value={email}
+          onChangeText={(email) => setEmail(email)}
         />
         <CustomInput
           label="Your password"
@@ -33,11 +45,13 @@ const Login = ({ navigation }) => {
           secureTextEntry={!passwordVisible}
           icon={passwordVisible ? "eye-off" : "eye"}
           iconPressHandler={() => setPasswordVisible(!passwordVisible)}
+          value={password}
+          onChangeText={(text) => setPassword(text)}
         />
         <RectButton
           text="Continue"
           backgroundColor={COLORS.secondary}
-          handlePress={() => navigation.navigate("Home")}
+          handlePress={onLogin}
         />
       </View>
       <View style={styles.bottomContainer}>
