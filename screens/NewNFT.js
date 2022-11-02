@@ -4,6 +4,8 @@ import GenericHeader from "../components/GenericHeader";
 import { COLORS } from "../constants";
 import { CustomInput, RectButton } from "../components";
 import * as ImagePicker from "expo-image-picker";
+import DateTimePicker from "@react-native-community/datetimepicker";
+// import { RNDateTimePicker } from "@react-native-community";
 
 const NewNFT = () => {
   const [image, setImage] = useState(null);
@@ -45,6 +47,9 @@ const NewNFT = () => {
                 textAlignVertical: "top",
               }}
             />
+            <DateTimePicker value={new Date()} />
+            <DateTimePicker value={new Date()} mode="time" />
+            {/* <RNDateTimePicker mode="time" /> */}
             <RectButton
               text={image ? "Change Image" : "Upload Image"}
               backgroundColor={COLORS.secondary}
